@@ -6,7 +6,7 @@ Welcome to our scraping project that collects data on **data engineering books**
 
 ## 🏗️ Project Architecture
 
-![Project Architecture](path/to/architecture_image.png)
+![Project Architecture](images/etl-architecture.png)
 
 ## ⚙️ Technologies Used
 
@@ -30,7 +30,7 @@ The data collected from Amazon is structured into a schema suitable for analysis
   - **scraped_at**: Timestamp of when the data was scraped.
 
 Insert your data modeling diagram below (if you have one):  
-![Data Model](path/to/data_model_image.png)
+![Data Model](images/data_model.png)
 
 ## 🚀 Installation and Launch
 
@@ -85,7 +85,10 @@ Once the data is collected, you can explore our interactive dashboard built with
 - **Rating Analysis**: Analysis of the average ratings for different books.
 - **Price Insights**: Overview of price distributions among the collected books.
 
-You can access the dashboard at `http://localhost:8501` once Streamlit is running.
+You can access the dashboard at `http://0.0.0.0:8501` once Streamlit is running.
+
+Insert your streamlit image below (if you have one):  
+![Streamlit](images/streamlit.png)
 
 ## 🤝 Contributing
 
@@ -93,7 +96,8 @@ Contributions are welcome! Feel free to open an **issue** or submit a **pull req
 
 ## 👤 Authors
 
-- [Your Name](https://github.com/yourprofile)
+- [Youcef](https://github.com/youcefB95)
+- inspirations : https://www.youtube.com/watch?v=mGROpJfPZ6w&ab_channel=ScrapingDog
 
 ## 📝 License
 

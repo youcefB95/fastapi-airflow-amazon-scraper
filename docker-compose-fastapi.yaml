@@ -1,0 +1,60 @@
+services:
+  selenium-hub:
+    image: selenium/hub:4.11.0
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
+      - "4442:4442"
+      - "4443:4443"
+    shm_size: "2gb"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:4444/wd/hub/status"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    restart: always
+    networks:
+      - fastapi_network # Le service selenium-hub est connecté au réseau 'fastapi_network'
+
+  chrome:
+    image: selenium/node-chrome:4.11.0
+    container_name: selenium-node-chrome
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=5
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    networks:
+      - fastapi_network # Le service selenium-hub est connecté au réseau 'fastapi_network'
+
+  fastapi:
+    build: ./fastapi
+    container_name: fastapi-container
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./fastapi:/app
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - selenium-hub
+      - chrome
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8000/health"]
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
+    networks:
+      - fastapi_network # Le service selenium-hub est connecté au réseau 'fastapi_network'
+
+networks:
+  fastapi_network:
+    external: true
+    name: fastapi_network

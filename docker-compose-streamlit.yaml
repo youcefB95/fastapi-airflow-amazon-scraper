@@ -1,0 +1,21 @@
+services:
+  streamlit:
+    build:
+      context: ./streamlit/ # Répertoire où se trouve le Dockerfile
+      dockerfile: Dockerfile
+    container_name: streamlit_app
+    volumes:
+      - ./streamlit:/streamlit # Monte le répertoire local dans le conteneur
+    working_dir: /streamlit # Le répertoire où le code de l'application se trouve
+    networks:
+      - airflow_network # Réseau existant dans Docker
+    ports:
+      - "8501:8501" # Mapping du port 8501 pour Streamlit
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+    command: ["streamlit", "run", "app.py", "--server.runOnSave=true"]
+
+networks:
+  airflow_network:
+    external: true # Le réseau airflow_network doit déjà exister
