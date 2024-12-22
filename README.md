@@ -21,13 +21,14 @@ Welcome to our scraping project that collects data on **data engineering books**
 The data collected from Amazon is structured into a schema suitable for analysis. Here’s a brief overview of the data model:
 
 - **Books Table**:
-  - **id** (Primary Key): Unique identifier for each book.
-  - **title**: The title of the book.
-  - **author**: The author(s) of the book.
+
+  - **book_id** (Primary Key): Unique identifier for each book.
+  - **author_id**: The author(s) of the book.
+  - **date_id**: Timestamp of when the data was scraped.
   - **price**: The price of the book.
   - **rating**: Average rating of the book.
-  - **link**: URL link to the book on Amazon.
-  - **scraped_at**: Timestamp of when the data was scraped.
+  - **title**: The title of the book.
+  - **image**: URL link to the book on Amazon.
 
 Insert your data modeling diagram below (if you have one):  
 ![Data Model](images/data_model.png)
