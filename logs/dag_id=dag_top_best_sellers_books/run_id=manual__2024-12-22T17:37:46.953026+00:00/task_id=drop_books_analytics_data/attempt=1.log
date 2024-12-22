@@ -1,0 +1,23 @@
+[2024-12-22T17:38:36.153+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-22T17:38:36.182+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_top_best_sellers_books.drop_books_analytics_data manual__2024-12-22T17:37:46.953026+00:00 [queued]>
+[2024-12-22T17:38:36.195+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_top_best_sellers_books.drop_books_analytics_data manual__2024-12-22T17:37:46.953026+00:00 [queued]>
+[2024-12-22T17:38:36.198+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 2
+[2024-12-22T17:38:36.215+0000] {taskinstance.py:2889} INFO - Executing <Task(PostgresOperator): drop_books_analytics_data> on 2024-12-22 17:37:46.953026+00:00
+[2024-12-22T17:38:36.227+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=1802) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-12-22T17:38:36.235+0000] {standard_task_runner.py:72} INFO - Started process 1804 to run task
+[2024-12-22T17:38:36.234+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_top_best_sellers_books', 'drop_books_analytics_data', 'manual__2024-12-22T17:37:46.953026+00:00', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/dag.py', '--cfg-path', '/tmp/tmpqb1tnrks']
+[2024-12-22T17:38:36.240+0000] {standard_task_runner.py:105} INFO - Job 62: Subtask drop_books_analytics_data
+[2024-12-22T17:38:36.593+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_top_best_sellers_books.drop_books_analytics_data manual__2024-12-22T17:37:46.953026+00:00 [running]> on host c50092bbd7fa
+[2024-12-22T17:38:36.758+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_top_best_sellers_books' AIRFLOW_CTX_TASK_ID='drop_books_analytics_data' AIRFLOW_CTX_EXECUTION_DATE='2024-12-22T17:37:46.953026+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-22T17:37:46.953026+00:00'
+[2024-12-22T17:38:36.764+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-22T17:38:36.784+0000] {sql.py:278} INFO - Executing: DROP TABLE IF EXISTS books_analytics;
+[2024-12-22T17:38:36.797+0000] {base.py:84} INFO - Retrieving connection 'books_connection'
+[2024-12-22T17:38:36.809+0000] {base.py:84} INFO - Retrieving connection 'books_connection'
+[2024-12-22T17:38:36.817+0000] {sql.py:553} INFO - Running statement: DROP TABLE IF EXISTS books_analytics;, parameters: None
+[2024-12-22T17:38:36.836+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-22T17:38:36.838+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_top_best_sellers_books, task_id=drop_books_analytics_data, run_id=manual__2024-12-22T17:37:46.953026+00:00, execution_date=20241222T173746, start_date=20241222T173836, end_date=20241222T173836
+[2024-12-22T17:38:36.875+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-12-22T17:38:37.098+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-12-22T17:38:37.102+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

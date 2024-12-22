@@ -1,0 +1,143 @@
+[2024-12-22T15:43:39.763+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-22T15:43:39.811+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_top_best_sellers_books.transform_books_data manual__2024-12-22T14:55:10.356955+00:00 [queued]>
+[2024-12-22T15:43:39.832+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_top_best_sellers_books.transform_books_data manual__2024-12-22T14:55:10.356955+00:00 [queued]>
+[2024-12-22T15:43:39.834+0000] {taskinstance.py:2866} INFO - Starting attempt 6 of 7
+[2024-12-22T15:43:39.860+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): transform_books_data> on 2024-12-22 14:55:10.356955+00:00
+[2024-12-22T15:43:39.882+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=597) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-12-22T15:43:39.893+0000] {standard_task_runner.py:72} INFO - Started process 599 to run task
+[2024-12-22T15:43:39.891+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'dag_top_best_sellers_books', 'transform_books_data', 'manual__2024-12-22T14:55:10.356955+00:00', '--job-id', '25', '--raw', '--subdir', 'DAGS_FOLDER/dag_test.py', '--cfg-path', '/tmp/tmpwnc539x_']
+[2024-12-22T15:43:39.902+0000] {standard_task_runner.py:105} INFO - Job 25: Subtask transform_books_data
+[2024-12-22T15:43:40.978+0000] {task_command.py:467} INFO - Running <TaskInstance: dag_top_best_sellers_books.transform_books_data manual__2024-12-22T14:55:10.356955+00:00 [running]> on host c50092bbd7fa
+[2024-12-22T15:43:41.139+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_top_best_sellers_books' AIRFLOW_CTX_TASK_ID='transform_books_data' AIRFLOW_CTX_EXECUTION_DATE='2024-12-22T14:55:10.356955+00:00' AIRFLOW_CTX_TRY_NUMBER='6' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-22T14:55:10.356955+00:00'
+[2024-12-22T15:43:41.144+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-22T15:43:41.231+0000] {transform_data.py:6} ERROR - 0     0..00
+1    48..75
+2    36..49
+3    28..36
+4    34..00
+Name: Price, dtype: object
+[2024-12-22T15:43:41.275+0000] {logging_mixin.py:190} INFO - <class 'pandas.core.frame.DataFrame'>
+RangeIndex: 51 entries, 0 to 50
+Data columns (total 6 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   Title   51 non-null     object
+ 1   Author  51 non-null     object
+ 2   Price   51 non-null     object
+ 3   Rating  51 non-null     object
+ 4   Image   51 non-null     object
+ 5   Date    51 non-null     object
+dtypes: object(6)
+memory usage: 2.5+ KB
+[2024-12-22T15:43:41.279+0000] {transform_data.py:7} ERROR - None
+[2024-12-22T15:43:41.326+0000] {dag_test.py:46} WARNING -                       Author  author_id
+0                 Paperback,          1
+1           Martin Kleppmann          2
+2                Alex Petrov          3
+3    Cole Nussbaumer Knaflic          4
+4             Charity Majors          5
+5                Jay Wengrow          6
+6                    Kindle,          7
+7           Catherine Nelson          8
+8             James Densmore          9
+9              Scott E. Page         10
+10             Bill Chambers         11
+11         Steven L. Brunton         12
+12                Hardcover,         13
+13          Robert S. Seiner         14
+14               Kevin Kelly         15
+15              James Gleick         16
+16             Kevin Mitnick         17
+17            Wilpen L. Gorr         18
+18               Bill Karwin         19
+19             Kenneth Field         20
+20           Allen B. Downey         21
+21                    Kindle         22
+22             Stefan Jansen         23
+23          Michael P. Lynch         24
+24        Bradford Tuckfield         25
+25        Audible Audiobook,         26
+26                 Paperback         27
+27                eTextbook,         28
+28            Tamer Khraisha         29
+29             Alan Beaulieu         30
+30          John Ladley B.A.         31
+31              Jeff Prosise         32
+32              Hannes Hapke         33
+33        Ole Olesen-Bagneux         34
+34             Pulkit Chadha         35
+35             Andy Petrella         36
+36              Dan Sullivan         37
+37             Paul Crickard         38
+38       Piethein Strengholt         39
+39      Mehdi Nourbakhsh PhD         40
+40             Chris Okasaki         41
+41         Giacinto Palmieri         42
+42            Alex Kolokolov         43
+43  Michael E Kirshteyn Ph.D         44
+44               Asif Abbasi         45
+[2024-12-22T15:43:41.344+0000] {dag_test.py:47} WARNING - ###########
+[2024-12-22T15:43:41.347+0000] {dag_test.py:48} WARNING -         Date  date_id  year  month  day
+0 2024-12-22        1  2024     12   22
+[2024-12-22T15:43:41.365+0000] {dag_test.py:49} WARNING - ###########
+[2024-12-22T15:43:41.368+0000] {dag_test.py:50} WARNING -     author_id  ...  book_id
+0           1  ...        1
+1           2  ...        2
+2           3  ...        3
+3           4  ...        4
+4           5  ...        5
+5           6  ...        6
+6           7  ...        7
+7           1  ...        8
+8           8  ...        9
+9           9  ...       10
+10         10  ...       11
+11         11  ...       12
+12         12  ...       13
+13         13  ...       14
+14          1  ...       15
+15         14  ...       16
+16         15  ...       17
+17          1  ...       18
+18         16  ...       19
+19          1  ...       20
+20         17  ...       21
+21         18  ...       22
+22         19  ...       23
+23         20  ...       24
+24         21  ...       25
+25         22  ...       26
+26         13  ...       27
+27         23  ...       28
+28         24  ...       29
+29         25  ...       30
+30         26  ...       31
+31         27  ...       32
+32         28  ...       33
+33         29  ...       34
+34         30  ...       35
+35         22  ...       36
+36         31  ...       37
+37         32  ...       38
+38         33  ...       39
+39         34  ...       40
+40         35  ...       41
+41         36  ...       42
+42         37  ...       43
+43         38  ...       44
+44         39  ...       45
+45         40  ...       46
+46         41  ...       47
+47         42  ...       48
+48         43  ...       49
+49         44  ...       50
+50         45  ...       51
+
+[51 rows x 7 columns]
+[2024-12-22T15:43:41.700+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-12-22T15:43:41.743+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-22T15:43:41.747+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dag_top_best_sellers_books, task_id=transform_books_data, run_id=manual__2024-12-22T14:55:10.356955+00:00, execution_date=20241222T145510, start_date=20241222T154339, end_date=20241222T154341
+[2024-12-22T15:43:41.854+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-12-22T15:43:41.892+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
