@@ -49,25 +49,32 @@ Follow the steps below to get this project up and running:
    cd fastapi-airflow-amazon-scraper
    ```
 
-3. **Initialize Airflow:**
+3. **Docker external networks then Initialize Airflow:**
 
+   ```bash
+   docker network create --driver bridge airflow_network
+   ```
+   ```bash
+   docker network create --driver bridge fastapi_network
+   ```
+   
    ```bash
    docker compose -f docker-compose.yaml up airflow-init
    ```
 
-4. **Start the services:**
+5. **Start the services:**
 
    ```bash
    docker compose -f docker-compose.yaml up
    ```
 
-5. **Start FastAPI:**
+6. **Start FastAPI:**
 
    ```bash
    docker compose -f docker-compose-fastapi.yaml up --build
    ```
 
-6. **Start Streamlit:**
+7. **Start Streamlit:**
    ```bash
    docker compose -f docker-compose-streamlit.yaml up --build
    ```
